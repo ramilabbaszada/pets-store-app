@@ -85,7 +85,7 @@ namespace Business.Concrete
             try {
                 await smtpClient.SendMailAsync(mailMsg);
             } catch(Exception e) {
-                Console.WriteLine(e);
+                return new ErrorResult(e.Message);
             }
 
             return new SuccessResult();
